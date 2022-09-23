@@ -10,8 +10,28 @@ const app = Vue.createApp({
         alt: "youtube buradan girin",
       },
       owner: "Pogaca",
+      coords: {
+        x: 0,
+        y: 0,
+      },
     };
+  },
+  methods: {
+    //fonksiyonlar içerecek
+    changeTitle(pTitle) {
+      this.title = pTitle;
+    },
+    updateCoords(message, event) {
+      //console.log(message, event.x, event.y);
+      this.changeTitle(`${event.x},${event.y}`);
+      this.coords = {
+        x: event.x,
+        y: event.y,
+      };
+    },
   },
 }).mount("#app");
 //vue instances
-//String Interpolation - text content olduğu yerlerde çalışır
+/*String Interpolation - text content olduğu yerlerde çalışır
+Data içerisinde ki veriyi cağırabildiğimiz gibi, metotlarda kullanılabilir, JS koduda yazılabilir
+*/

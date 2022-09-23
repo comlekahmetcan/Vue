@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!--Template-->
@@ -19,6 +20,18 @@
         v-bind:kablosuzkedi="owner"
         >{{eduflow.title}}</a
       >
+      <br />
+      <br />
+      <button v-on:click="changeTitle('Bu 1.Buton')">Title Değiştir...!</button>
+      <button v-on:click="changeTitle('Bu 2.Buton')">
+        Title 2 Değiştir...!
+      </button>
+      <div
+        @mousemove="updateCoords('MouseMooooove',$event)"
+        class="box"
+        @click="changeTitle('Box üzerinden gelen')"
+      ></div>
+      <span>{{coords.x}} , {{coords.y}}</span>
     </div>
     <!--Template-->
 
