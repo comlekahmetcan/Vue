@@ -36,7 +36,8 @@
             <!-- <h1 v-if="showContainer" class="text-primary">Sonra gözükecek</h1> -->
             <h1 v-else class="text-primary">Sonra gözükecek</h1>
             <hr />
-            <h3>{{counter}}</h3>
+            <!-- <h3 :class="{'bg-success' : counter > 0 , 'bg-danger text-white' : counter < 0 }">{{counter}}</h3> -->
+            <h3 :class="counterBoxClass">{{counter}}</h3>
             <button class="btn btn-sm btn-success" @click="counter++">
               Arttır
             </button>
