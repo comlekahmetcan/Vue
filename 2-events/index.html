@@ -23,12 +23,19 @@
       <div class="row mt-5">
         <div class="col-4 offset-4">
           <h3 class="text-center">Event</h3>
-          <input
-            @input="updateValue"
+          <!--@input="updateValue" bu şekilden ayrılarak Javascript kodu @input="fullName=$event.target.value" kullanabiliriz ama ileride iş yükü binince zorlaşacak-->
+          
+          <!-- <input
+            @input="fullName=$event.target.value"
             type="text"
             class="form-control"
             :value="fullName"
-          />
+          /> -->
+
+          
+          <!--Directive: Bir elementin yapısını,davranış biçimini ve şeklini değiştirebilen iş parçası (v-xx directivedir)
+        v-model: önemli bir bileşen two way communication-->
+          <input v-model="fullName" type="text" class="form-control" />
           {{fullName}}
           <br />
           <button class="btn btn-primary btn-sm">Ekle</button>

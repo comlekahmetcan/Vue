@@ -5,9 +5,9 @@ const app = Vue.createApp({
     };
   },
   methods: {
-    updateValue(event) {
-      console.log(event.target.value);
-      this.fullName = event.target.value;
+    updateValue(kamil) {
+      //console.log(event.target.value);
+      this.fullName = kamil.target.value;
     },
   },
 }).mount("#app");
