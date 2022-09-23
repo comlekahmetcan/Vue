@@ -11,11 +11,9 @@
   <body>
     <div id="app">
       <!-- <div class="box" :class="boxClass"></div> -->
-      {{border}}
       <button @click="showBorder = !showBorder">Border Ekle/Ekleme</button>
       <button @click="redBG = !redBG">redBG Ekle/Ekleme</button>
-
-      <div class="box" :class="{ border : showBorder, red : redBG }"></div>
+      <div class="box" :class="boxClasses"></div>
     </div>
 
     <script src="app.js"></script>

@@ -6,4 +6,9 @@ const app = Vue.createApp({
       boxClass: "border red",
     };
   },
+  computed: {
+    boxClasses() {
+      return { border: this.showBorder, red: this.redBG };
+    },
+  },
 }).mount("#app");
