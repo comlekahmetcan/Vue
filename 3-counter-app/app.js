@@ -5,7 +5,10 @@ const app = Vue.createApp({
       counter2: 0,
     };
   },
-  methods: {
+  methods: {},
+  computed: {
+    //bir değişken olarak tanımlanırlar ve değer döndürürler-this ile işleme soktuğumuz verileri kontrol ediyor
+    //reactivity işlemi
     getCounterResult() {
       console.log("Counter 1 Çalıştı");
       return this.counter > 5 ? "BÜYÜK" : "KÜÇÜK";

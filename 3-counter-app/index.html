@@ -29,19 +29,19 @@
             </button>
             <button @click="counter--" class="btn btn-sm btn-danger">-</button>
           </div>
-          <div class="alert alert-warning">{{getCounterResult()}}</div>
+          <div class="alert alert-warning">{{getCounterResult}}</div>
         </div>
 
         <div class="col-2 card p-2">
-            <h3 class="text-center">{{counter2}}</h3>
-            <div class="d-flex justify-content-center align-item-center">
-              <button @click="counter2++" class="btn-sm btn me-2 btn-primary">
-                +
-              </button>
-              <button @click="counter2--" class="btn btn-sm btn-danger">-</button>
-            </div>
-            <div class="alert alert-warning mt-2">{{getCounter2Result()}}</div>
+          <h3 class="text-center">{{counter2}}</h3>
+          <div class="d-flex justify-content-center align-item-center">
+            <button @click="counter2++" class="btn-sm btn me-2 btn-primary">
+              +
+            </button>
+            <button @click="counter2--" class="btn btn-sm btn-danger">-</button>
           </div>
+          <div class="alert alert-warning mt-2">{{getCounter2Result}}</div>
+        </div>
       </div>
     </div>
     <script src="app.js"></script>
