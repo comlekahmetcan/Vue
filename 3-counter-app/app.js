@@ -18,6 +18,15 @@ const app = Vue.createApp({
       return this.counter2 > 5 ? "BÜYÜK" : "KÜÇÜK";
     },
   },
+  watch: {
+    //datamızda computed olan veriyi direk izleyebilmemizi sağlar - değer değiştiğinde çalışır
+    counter(newValue, oldValue) {
+      console.log("Counter", oldValue, "=>", newValue);
+    },
+    getCounterResult(newValue, oldValue) {
+      console.log("RESULT", oldValue, "=>", newValue);
+    },
+  },
   //   methods: {
   //     inc() {
   //       this.counter++;
