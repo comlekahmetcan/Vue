@@ -17,5 +17,8 @@ const app = Vue.createApp({
       this.todoList.push(event.target.value);
       event.target.value = "";
     },
+    removeItem(todoItem) {
+      this.todoList = this.todoList.filter((todo) => todo != todoItem);
+    },
   },
 }).mount("#app");
