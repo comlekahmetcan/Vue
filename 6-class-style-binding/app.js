@@ -4,6 +4,7 @@ const app = Vue.createApp({
       showBorder: false,
       redBG: false,
       boxClass: "border red",
+      bgColor: "cyan",
     };
   },
   computed: {
