@@ -1,7 +1,6 @@
 <template>
   <ul>
-    {{myData}}
-    <TodoListItem v-for="i in 10" :key="i" />
+    <TodoListItem v-for="todoItem in myData" :key="todoItem.id" :item="todoItem" />
   </ul>
 </template>
 
