@@ -4,7 +4,7 @@
     <hr class="my-2" />
     <AddSection @add-todo="addNewTodo" />
     <TodoList :myData="todoList" />
-    <ResultBar />
+    <ResultBar :itemCount="todoList.length" />
   </div>
 </template>
 
