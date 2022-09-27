@@ -3,7 +3,7 @@
     <h3 class="text-center">ToDo App</h3>
     <hr class="my-2" />
     <AddSection />
-    <TodoList />
+    <TodoList myData="Bu benim datam"/>
     <ResultBar />
   </div>
 </template>
