@@ -38,10 +38,16 @@ export default {
   methods: {
     deleteItem(todoItem) {
       this.todoList = this.todoList.filter((t) => t != todoItem);
+<<<<<<< HEAD
       // const matchedIndex = this.todoList.findIndex(i=>i == todoItem)
       // if(matchedIndex>-1){
       //   this.todoList.splice(this.todoList[matchedIndex],1)
       // }
+=======
+      // const matchedIndex = this.todoList.findIndex((i) => i == todoItem);
+      // if (matchedIndex > -1) {
+      //   this.todoList.splice(this.todoList[matchedIndex], 1);
+>>>>>>> 7c39521b6af9211e0ac795ff3ba2cfb007fb63b9
     },
     addNewTodo(event) {
       this.todoList.push({
