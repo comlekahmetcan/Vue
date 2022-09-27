@@ -1,13 +1,18 @@
 <template>
   <ul>
-    <TodoListItem @delete-todo-item="$emit('delete-todo-item', $event)" v-for="todoItem in myData" :key="todoItem.id" :item="todoItem" />
+    <TodoListItem
+      v-for="todoItem in provideData.todoList"
+      :key="todoItem.id"
+      :item="todoItem"
+    />
   </ul>
 </template>
 
 <script>
 import TodoListItem from "@/components/TodoListItem";
 export default {
-  props: ["myData"],
+  //props: ["myData"],
+  inject: ["provideData"],
   //   data(){
   //     return{
   //         myData:""
