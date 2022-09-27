@@ -3,7 +3,12 @@
     <h3 class="text-center">ToDo App</h3>
     <hr class="my-2" />
     <label for="todoText"></label>
-    <input type="text" id="todoText" placeholder="Bir şeyler yazınız..." />
+    <input
+      @keydown.enter="addNewTodo"
+      type="text"
+      id="todoText"
+      placeholder="Bir şeyler yazınız..."
+    />
     <ul>
       <li
         v-for="todoItem in todoList"
@@ -37,6 +42,16 @@ export default {
   methods: {
     deleteItem(todoItem) {
       this.todoList = this.todoList.filter((t) => t != todoItem);
+      // const matchedIndex = this.todoList.findIndex((i) => i == todoItem);
+      // if (matchedIndex > -1) {
+      //   this.todoList.splice(this.todoList[matchedIndex], 1);
+    },
+    addNewTodo(event) {
+      this.todoList.push({
+        id: new Date().getTime(),
+        text: event.target.value,
+      });
+      event.target.value = "";
     },
   },
 };
