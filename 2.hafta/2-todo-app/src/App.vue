@@ -2,7 +2,7 @@
   <div class="container">
     <h3 class="text-center">ToDo App</h3>
     <hr class="my-2" />
-    <AddSection @add-todo="addNewTodo" />
+    <AddSection :addNewTodo="addNewTodo" @add-todo="addNewTodo" />
     <TodoList @delete-todo-item="deleteItem" :myData="todoList" />
     <ResultBar :itemCount="todoList.length" />
   </div>
