@@ -5,5 +5,8 @@
 <script>
 export default {
   props: ["msg"],
+  mounted() {
+    console.log("Red Mounted");
+  },
 };
 </script>

@@ -9,9 +9,12 @@
     <Green v-if="activeComponent == 'Green'" class="mb-2" />
     <Blue v-if="activeComponent == 'Blue'" class="mb-2" /> -->
     {{ activeComponent }}
-    <component :is="activeComponent" msg="Red Component 2">
-      <h3 class="bg-green text-white">Green Component</h3>
-    </component>
+    <!--keep-alive statemizi tutmaya yarıyor-->
+    <keep-alive>
+      <component :is="activeComponent" msg="Red Component 2">
+        <h3 class="bg-green text-white">Green Component</h3>
+      </component>
+    </keep-alive>
   </div>
 </template>
 
