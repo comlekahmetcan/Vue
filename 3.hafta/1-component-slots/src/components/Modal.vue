@@ -16,7 +16,13 @@
     <hr />
     <div class="footer">
       <button class="mr-2">Kapat</button>
-      <button class="ml-2 green">Kaydet</button>
+      <button @click="onSave" class="ml-2 green">Kaydet</button>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["onSave"],
+};
+</script>
