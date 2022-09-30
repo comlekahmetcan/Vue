@@ -23,10 +23,12 @@ export default {
   created() {
     console.log(this.$store.state.person);
     console.log(this.$store.state.theme);
+    //console.log(this.$store.state.itemList.filter((i) => i.type == "mobilya"));
+    console.log(this.$store.getters.woodItems);//getters ile state bilgisine ulaşıldı
   },
   methods: {
     updateName() {
-      this.$store.state.fullName = new Date().getTime();
+      this.$store.state.fullName = new Date().getTime(); //doğru bir yöntem değildir
     },
   },
 };
