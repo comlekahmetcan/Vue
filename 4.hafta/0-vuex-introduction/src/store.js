@@ -2,10 +2,13 @@ import { createStore } from "vuex";
 
 const store = createStore({
   state: {
-    person: {
+    user: {
       age: 25,
       name: "AhmetCan",
       lname: "Çömlek",
+      adres: {},
+      password: 1231123123,
+      tc: 111111,
     },
     theme: "dark",
     fullName: "AhmetCan ÇÖMLEK",
@@ -30,6 +33,13 @@ const store = createStore({
   getters: {
     //state verileri geri döndürme
     woodItems: (state) => state.itemList.filter((i) => i.type == "mobilya"),
+    activeUser(state) {
+      const user = {
+        ...state.user,
+      };
+      delete user.password;
+      return user;
+    },
   },
 });
 
