@@ -1,7 +1,7 @@
 <template>
   <p>
-    {{$store.state.user}}
-    {{$store.state.permissions}}
+    <!-- {{$store.state.user}}
+    {{$store.state.permissions}} -->
     <!-- <ul>
       <li v-for="permissions in $store.state.permissions" :key="permissions">
         {{permissions}}
@@ -12,43 +12,39 @@
         {{user}}
       </li>
     </ul> -->
-    <ul>
-      <li v-for="(item,index) in woodItems" :key="index">
-        {{item.title}}
-      </li>
-    </ul>
-    {{$store.state.fullName}}
-    <button @click="updateName">Full Name Bilgisini Değiştirme...!</button>
+    <!-- {{$store.state.fullName}}> -->
   </p>
+  <UserList />
+  <NewUser />
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import NewUser from "@/components/NewUser";
+import UserList from "@/components/UserList";
 export default {
   name: "App",
-  created() {
-    console.log(this.$store.state.user);
-    console.log(this.$store.state.theme);
-    //console.log(this.$store.state.itemList.filter((i) => i.type == "mobilya"));
-    console.log(this.$store.getters._woodItems); //getters ile state bilgisine ulaşıldı
-    //console.log(this.$store.getters.activeUser);
-    console.log(this.activeUser);
+  components: {
+    NewUser,
+    UserList,
   },
-  methods: {
-    updateName() {
-      this.$store.state.itemList.push({ id: 6, title: "Raf", type: "mobilya" });
-      this.$store.state.fullName = new Date().getTime(); //doğru bir yöntem değildir
-    },
+  created() {
+    // console.log(this.$store.state.user);
+    // console.log(this.$store.state.theme);
+    // //console.log(this.$store.state.itemList.filter((i) => i.type == "mobilya"));
+    // console.log(this.$store.getters._woodItems); //getters ile state bilgisine ulaşıldı
+    // //console.log(this.$store.getters.activeUser);
+    // console.log(this.activeUser);
   },
   //computed: mapGetters(["woodItems","activeUser"]), component içerisinde computed tanımlamada hata alıyoruz bu şekilde kullanılınca
-  computed: {
-    //...mapGetters(["woodItems", "activeUser"]),1.kullanım
-    ...mapGetters({//2.kullanım
-      woodItems: "_woodItems",
-      avtiveUser: "_activeUser",
-    }),
-    // customComputed() {},
-  },
+  // computed: {
+  //   //...mapGetters(["woodItems", "activeUser"]),1.kullanım
+  //   ...mapGetters({
+  //     //2.kullanım
+  //     woodItems: "_woodItems",
+  //     avtiveUser: "_activeUser",
+  //   }),
+  //   // customComputed() {},
+  // },
   // computed: {//computed olarak normal kullanım
   //   mobilyaElemanları() {
   //     return this.$store.getters.woodItems;
