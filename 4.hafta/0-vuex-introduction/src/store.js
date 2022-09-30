@@ -30,6 +30,11 @@ const store = createStore({
       { id: 5, title: "Bardak", type: "plastik" },
     ],
   },
+  mutations: {
+    newItem(state, item) {
+      state.itemList.push(item);
+    },
+  },
   getters: {
     //state verileri geri döndürme
     _woodItems: (state) => state.itemList.filter((i) => i.type == "mobilya"),

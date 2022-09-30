@@ -6,12 +6,14 @@
 export default {
   methods: {
     updateName() {
-      this.$store.state.itemList.push({
+      const userData = {
         id: new Date().getTime(),
         title: "Raf" + new Date().getTime(),
         type: "mobilya",
-      });
-      this.$store.state.fullName = new Date().getTime(); //doğru bir yöntem değildir
+      };
+      this.$store.commit("newItem", userData);
+    //   this.$store.state.itemList.push(userData);
+    //   this.$store.state.fullName = new Date().getTime(); //doğru bir yöntem değildir
     },
   },
 };
