@@ -35,6 +35,15 @@ const store = createStore({
       state.itemList.push(item);
     },
   },
+  actions: {
+    newItem({ commit }, item) {//newItem(context, item)
+      console.log(item);
+      setTimeout(() => {
+        commit("newItem", item);
+        // context.commit("newItem", item);
+      }, 2000);
+    },
+  },
   getters: {
     //state verileri geri döndürme
     _woodItems: (state) => state.itemList.filter((i) => i.type == "mobilya"),

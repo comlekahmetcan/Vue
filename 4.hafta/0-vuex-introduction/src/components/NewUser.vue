@@ -11,7 +11,8 @@ export default {
         title: "Raf" + new Date().getTime(),
         type: "mobilya",
       };
-      this.$store.commit("newItem", userData);
+      // this.$store.commit("newItem", userData);
+      this.$store.dispatch("newItem",userData)
     //   this.$store.state.itemList.push(userData);
     //   this.$store.state.fullName = new Date().getTime(); //doğru bir yöntem değildir
     },
