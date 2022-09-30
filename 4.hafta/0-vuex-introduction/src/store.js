@@ -32,8 +32,8 @@ const store = createStore({
   },
   getters: {
     //state verileri geri döndürme
-    woodItems: (state) => state.itemList.filter((i) => i.type == "mobilya"),
-    activeUser(state) {
+    _woodItems: (state) => state.itemList.filter((i) => i.type == "mobilya"),
+    _activeUser(state) {
       const user = {
         ...state.user,
       };
