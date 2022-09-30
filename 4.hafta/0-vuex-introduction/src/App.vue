@@ -12,6 +12,8 @@
         {{user}}
       </li>
     </ul>
+    {{$store.state.fullName}}
+    <button @click="updateName">Full Name Bilgisini Değiştirme...!</button>
   </p>
 </template>
 
@@ -21,6 +23,11 @@ export default {
   created() {
     console.log(this.$store.state.person);
     console.log(this.$store.state.theme);
+  },
+  methods: {
+    updateName() {
+      this.$store.state.fullName = new Date().getTime();
+    },
   },
 };
 </script>
