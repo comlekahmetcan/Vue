@@ -1,7 +1,9 @@
 export default {
+  namespaced: true,
   state: {
     contactName: "puresol",
     contactAddress: "Kanada",
+    propertyList: [],
   },
   mutations: {
     setItem(state, name) {
@@ -10,5 +12,6 @@ export default {
   },
   getters: {
     _contactName: (state) => state.contactName,
+    _itemList: (state) => state.propertyList,
   },
 };

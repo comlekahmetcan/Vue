@@ -7,7 +7,7 @@ const store = createStore({
     mainName: "AhmetCan",
   },
   modules: {
-    musteri : contact,
+    musteri: contact,
     taskmanager,
   },
 });
