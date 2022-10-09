@@ -9,8 +9,11 @@ const routes = [
   },
   {
     path: "/hakkimda",
-    // component: About,
     component: () => import("@/views/MyAbout"),
+  },
+  {
+    path: "/detay/:userID",
+    component: () => import("@/views/MyDetails"),
   },
 ];
 const router = createRouter({
