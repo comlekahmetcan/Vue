@@ -21,6 +21,10 @@ export default {
         params: {
           userID: e.target.value,
         },
+        query: {
+          type: "DetailAuth",
+          user: "ahmetcancomlek",
+        },
       });
     },
   },
