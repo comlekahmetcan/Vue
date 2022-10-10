@@ -4,6 +4,7 @@
       <label for="title" class="form-label">Başlık</label>
       <input
         type="text"
+        v-model="userData.title"
         class="form-control"
         id="exampleFormControlInput1"
         placeholder="ahmetcan döküman...."
@@ -13,6 +14,7 @@
       <label for="url" class="form-label">URL</label>
       <input
         type="text"
+        v-model="userData.url"
         class="form-control"
         id="url"
         placeholder="https://..."
@@ -21,6 +23,7 @@
     <div class="mb-3">
       <label for="description" class="form-label">Açıklama</label>
       <textarea
+        v-model="userData.description"
         class="form-control"
         placeholder="Bu varya..."
         id="description"
@@ -36,6 +39,25 @@
     >
       İptal
     </button>
-    <button class="btn btn-sm btn-primary">Kaydet</button>
+    <button class="btn btn-sm btn-primary" @click="onSave">Kaydet</button>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      userData: {
+        title: null,
+        url: null,
+        description: null,
+      },
+    };
+  },
+  methods: {
+    onSave() {
+      console.log(this.userData);
+    },
+  },
+};
+</script>
