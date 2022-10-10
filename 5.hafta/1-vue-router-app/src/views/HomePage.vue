@@ -26,7 +26,14 @@
             <a :href="bookmark.url" target="_blank">{{ bookmark.url }}</a>
           </td>
           <td>{{ bookmark.description }}</td>
-          <td><button class="btn btn-sm btn-danger">Sil</button></td>
+          <td>
+            <button
+              @click="deleteBookmark(bookmark)"
+              class="btn btn-sm btn-danger"
+            >
+              Sil
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -44,6 +51,21 @@ export default {
     this.$appAxios.get("/bookmarks").then((bookmarks_list_response) => {
       this.bookmarkList = bookmarks_list_response.data || [];
     });
+  },
+  methods: {
+    deleteBookmark(bookmark) {
+      // console.log(bookmark);
+      this.$appAxios
+        .delete(`/bookmarks/${bookmark.id}`)
+        .then((delete_response) => {
+          console.log(delete_response);
+          if (delete_response.status == 200) {
+            this.bookmarkList = this.bookmarkList.filter(
+              (b) => b.id != bookmark.id
+            );
+          }
+        });
+    },
   },
 };
 </script>
