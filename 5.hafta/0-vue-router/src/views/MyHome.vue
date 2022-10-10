@@ -15,7 +15,13 @@
 export default {
   methods: {
     goToDetails(e) {
-      this.$router.push(`/detay/${e.target.value}`);
+      //this.$router.push(`/detay/${e.target.value}`);
+      this.$router.push({
+        name: "DetailsPage",
+        params: {
+          userID: e.target.value,
+        },
+      });
     },
   },
 };
