@@ -1,5 +1,5 @@
 <template>
-  <div class="card border p-2">
+  <div class="card p-2">
     <div class="d-flex justify-content-end">
       <button
         class="btn btn-primary btn-sm"
@@ -14,17 +14,36 @@
           <th scope="col">#</th>
           <th scope="col">Başlık</th>
           <th scope="col">URL</th>
+          <th scope="col">Açıklama</th>
           <th scope="col">Sil</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="i in 10" :key="i">
-          <th scope="row">1</th>
-          <td>Vue3 Dökümantasyon</td>
-          <td>https://v3.vuejs.org</td>
+        <tr v-for="bookmark in bookmarkList" :key="bookmark.id">
+          <th scope="row">{{ bookmark.id }}</th>
+          <td>{{ bookmark.title }}</td>
+          <td>
+            <a :href="bookmark.url" target="_blank">{{ bookmark.url }}</a>
+          </td>
+          <td>{{ bookmark.description }}</td>
           <td><button class="btn btn-sm btn-danger">Sil</button></td>
         </tr>
       </tbody>
     </table>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      bookmarkList: [],
+    };
+  },
+  created() {
+    this.$appAxios.get("/bookmarks").then((bookmarks_list_response) => {
+      this.bookmarkList = bookmarks_list_response.data || [];
+    });
+  },
+};
+</script>
