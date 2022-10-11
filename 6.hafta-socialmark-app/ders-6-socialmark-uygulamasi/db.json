@@ -1,40 +1,10 @@
 {
   "users": [
     {
-      "username": "asdas",
-      "fullname": "asdasd",
-      "password": "d5405c587e2cde00d541df8bd5fbf8aee191d50f",
-      "id": 1
-    },
-    {
-      "username": "ff",
-      "fullname": "fff",
-      "password": "d5405c587e2cde00d541df8bd5fbf8aee191d50f",
-      "id": 2
-    },
-    {
-      "username": "1231232",
-      "fullname": "123123",
-      "password": "d5405c587e2cde00d541df8bd5fbf8aee191d50f",
-      "id": 3
-    },
-    {
-      "username": "lajzmax",
-      "fullname": "acan comlek",
-      "password": "d5405c587e2cde00d541df8bd5fbf8aee191d50f",
-      "id": 4
-    },
-    {
-      "username": "admin",
-      "fullname": "ahmetcan çömlek",
-      "password": "d5405c587e2cde00d541df8bd5fbf8aee191d50f",
-      "id": 5
-    },
-    {
       "username": "a",
-      "fullname": "a",
+      "fullname": "acan",
       "password": "9f626db2ddf5841ba1721c685b1bcbf943cb9caa",
-      "id": 6
+      "id": 1
     }
   ],
   "bookmarks": [],

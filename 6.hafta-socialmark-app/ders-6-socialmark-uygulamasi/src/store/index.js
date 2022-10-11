@@ -4,6 +4,11 @@ export default createStore({
     user: null,
     saltKey: "booklike123!4567",
   },
+  mutations: {
+    setUser(state, user) {
+      state.user = user;
+    },
+  },
   getters: {
     _isAuthenticated: (state) => state.user != null,
     _getCurrentUser(state) {
