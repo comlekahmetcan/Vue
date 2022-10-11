@@ -26,8 +26,7 @@ export default {
   },
   methods: {
     onSave() {
-      const key = "booklike123!4567";
-      const password = CryptoJS.AES.encrypt(this.userData.password, key).toString();
+      const password = CryptoJS.HmacSHA1(this.userData.password, this.$store.getters._saltKey).toString();
       this.$appAxios.post("/users", { ...this.userData, password }).then((registed_user_response) => {
         console.log("registed_user_response", registed_user_response);
         this.$router.push({ name: "HomePage" });
