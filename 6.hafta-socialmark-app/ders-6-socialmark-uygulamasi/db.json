@@ -1,5 +1,30 @@
 {
-    "users": [],
-    "bookmarks": [],
-    "categories": []
+  "users": [
+    {
+      "username": "asdas",
+      "fullname": "asdasd",
+      "password": "U2FsdGVkX19veGRCazyWW/FFh8XCR7M24Am1HNtrnco=",
+      "id": 1
+    },
+    {
+      "username": "ff",
+      "fullname": "fff",
+      "password": "U2FsdGVkX1956BIUWyY0NFaAdnvX36gtz+YXUO56Lso=",
+      "id": 2
+    },
+    {
+      "username": "1231232",
+      "fullname": "123123",
+      "password": "U2FsdGVkX1834Ytk061nIfzNEMJUD5wdCknDQYelJMM=",
+      "id": 3
+    },
+    {
+      "username": "lajzmax",
+      "fullname": "acan comlek",
+      "password": "U2FsdGVkX1/TOC4Mfirx4vY3fz+QptyzbQ3IW0bo0kw=",
+      "id": 4
+    }
+  ],
+  "bookmarks": [],
+  "categories": []
 }
