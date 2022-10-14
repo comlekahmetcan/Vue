@@ -3,7 +3,7 @@
     <div class="p-3">
       <a :href="item.url" target="_blank" class="hover:text-black font-bold text-l mb-1 text-gray-600 text-center">{{ item.title || "-" }}</a>
       <div class="flex items-center justify-center mt-2 gap-x-1">
-        <button class="like-btn group">
+        <button @click="likeItem" class="like-btn group">
           <svg xmlns="http://www.w3.org/2000/svg" class="fill-current group-hover:text-white" height="24" viewBox="0 0 24 24" width="24">
             <path d="M0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none" />
             <path
@@ -11,7 +11,7 @@
             />
           </svg>
         </button>
-        <button class="bookmark-btn group bookmark-item-active">
+        <button class="bookmark-btn group">
           <svg xmlns="http://www.w3.org/2000/svg" class="fill-current group-hover:text-white" enable-background="new 0 0 24 24" viewBox="0 0 24 24" width="24" height="24">
             <rect fill="none" />
             <path d="M17,11v6.97l-5-2.14l-5,2.14V5h6V3H7C5.9,3,5,3.9,5,5v16l7-3l7,3V11H17z M21,7h-2v2h-2V7h-2V5h2V3h2v2h2V7z" />
@@ -39,12 +39,22 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   props: {
     item: {
       type: Object,
       required: true,
-      default: () => {}
+      default: () => {},
+    },
+  },
+  methods: {
+    likeItem() {
+      const likes = [...this._userLikes, this.item.id];
+      this.$appAxios.patch(`/users/${this._getCurrentUser.id}`, { likes }).then((like_response) => {
+        console.log("like_response", like_response);
+        this.$store.commit("addToLikes", this.item.id);
+      });
     },
   },
   computed: {
@@ -54,6 +64,7 @@ export default {
     userName() {
       return this.item?.user?.fullname || "-";
     },
+    ...mapGetters(["_getCurrentUser", "_userLikes"]),
   },
 };
 </script>

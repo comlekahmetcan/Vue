@@ -4,7 +4,13 @@
       "username": "a",
       "fullname": "acan",
       "password": "9f626db2ddf5841ba1721c685b1bcbf943cb9caa",
-      "id": 1
+      "id": 1,
+      "likes": [
+        8,
+        4,
+        3,
+        1
+      ]
     },
     {
       "username": "asdas",
