@@ -3,7 +3,7 @@
     <div class="p-3">
       <a :href="item.url" target="_blank" class="hover:text-black font-bold text-l mb-1 text-gray-600 text-center">{{ item.title || "-" }}</a>
       <div class="flex items-center justify-center mt-2 gap-x-1">
-        <button @click="likeItem" class="like-btn group">
+        <button @click="likeItem" class="like-btn group" :class="{ 'bookmark-item-active': alreadyLiked }">
           <svg xmlns="http://www.w3.org/2000/svg" class="fill-current group-hover:text-white" height="24" viewBox="0 0 24 24" width="24">
             <path d="M0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none" />
             <path
@@ -50,10 +50,16 @@ export default {
   },
   methods: {
     likeItem() {
-      const likes = [...this._userLikes, this.item.id];
+      let likes = [...this._userLikes];
+      if (!this.alreadyLiked) {
+        likes = [...likes, this.item.id];
+      } else {
+        likes = likes.filter((l) => l != this.item.id);
+      }
+
       this.$appAxios.patch(`/users/${this._getCurrentUser.id}`, { likes }).then((like_response) => {
         console.log("like_response", like_response);
-        this.$store.commit("addToLikes", this.item.id);
+        this.$store.commit("setLikes", likes);
       });
     },
   },
@@ -63,6 +69,9 @@ export default {
     },
     userName() {
       return this.item?.user?.fullname || "-";
+    },
+    alreadyLiked() {
+      return this._userLikes?.indexOf(this.item.id) > -1;
     },
     ...mapGetters(["_getCurrentUser", "_userLikes"]),
   },
