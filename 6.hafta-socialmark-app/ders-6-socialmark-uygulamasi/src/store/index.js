@@ -19,6 +19,9 @@ export default createStore({
     setLikes(state, bookmarkIds) {
       state.user.likes = bookmarkIds;
     },
+    setBookmarks(state, bookmarkIds) {
+      state.user.bookmarks = bookmarkIds;
+    },
   },
   getters: {
     _isAuthenticated: (state) => state.user != null,

@@ -11,7 +11,7 @@
             />
           </svg>
         </button>
-        <button class="bookmark-btn group">
+        <button @click="bookmarkItem" class="bookmark-btn group" :class="{ 'bookmark-item-active': alreadyBookmarked }">
           <svg xmlns="http://www.w3.org/2000/svg" class="fill-current group-hover:text-white" enable-background="new 0 0 24 24" viewBox="0 0 24 24" width="24" height="24">
             <rect fill="none" />
             <path d="M17,11v6.97l-5-2.14l-5,2.14V5h6V3H7C5.9,3,5,3.9,5,5v16l7-3l7,3V11H17z M21,7h-2v2h-2V7h-2V5h2V3h2v2h2V7z" />
@@ -58,8 +58,19 @@ export default {
       }
 
       this.$appAxios.patch(`/users/${this._getCurrentUser.id}`, { likes }).then((like_response) => {
-        console.log("like_response", like_response);
         this.$store.commit("setLikes", likes);
+      });
+    },
+    bookmarkItem() {
+      let bookmarks = [...this._userBookmarks];
+      if (!this.alreadyBookmarked) {
+        bookmarks = [...bookmarks, this.item.id];
+      } else {
+        bookmarks = bookmarks.filter((b) => b != this.item.id);
+      }
+
+      this.$appAxios.patch(`/users/${this._getCurrentUser.id}`, { bookmarks }).then((bookmarks_response) => {
+        this.$store.commit("setBookmarks", bookmarks);
       });
     },
   },
@@ -73,7 +84,10 @@ export default {
     alreadyLiked() {
       return this._userLikes?.indexOf(this.item.id) > -1;
     },
-    ...mapGetters(["_getCurrentUser", "_userLikes"]),
+    alreadyBookmarked() {
+      return this._userBookmarks?.indexOf(this.item.id) > -1;
+    },
+    ...mapGetters(["_getCurrentUser", "_userLikes", "_userBookmarks"]),
   },
 };
 </script>
