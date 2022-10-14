@@ -73,6 +73,24 @@
       "userId": 1,
       "created_at": "2022-10-14T06:55:25.927Z",
       "id": 6
+    },
+    {
+      "title": "asda",
+      "url": "asda",
+      "categoryId": 1,
+      "description": "sdas",
+      "userId": 3,
+      "created_at": "2022-10-14T07:23:34.246Z",
+      "id": 7
+    },
+    {
+      "title": "REACT",
+      "url": "REACT",
+      "categoryId": 2,
+      "description": "REACT",
+      "userId": 1,
+      "created_at": "2022-10-14T07:29:59.828Z",
+      "id": 8
     }
   ],
   "categories": [
