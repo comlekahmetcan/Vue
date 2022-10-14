@@ -17,11 +17,10 @@ export default {
       bookmarkList: [],
     };
   },
-  created() {
-    this.$appAxios.get("/bookmarks").then((bookmark_list_response) => {
-      console.log(bookmark_list_response);
-      this.bookmarkList = bookmark_list_response?.data || [];
-    });
-  },
+  created(){
+    this.$appAxios.get("/bookmarks?_expand=category&_expand=user").then(bookmark_list_response=>{
+      this.bookmarkList=bookmark_list_response?.data||[];
+    })
+  }
 };
 </script>

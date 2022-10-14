@@ -30,11 +30,11 @@
         </div>
       </div>
       <div class="text-xs text-gray-400 mt-2 flex justify-between">
-        <a href="#" class="hover:text-black"> Gökhan Kandemir </a>
+        <a href="#" class="hover:text-black"> {{ userName }}</a>
         <span>14 Mart</span>
       </div>
     </div>
-    <div class="bg-red-200 p-1 text-red-900 text-center text-sm">Vue.js</div>
+    <div class="bg-red-200 p-1 text-red-900 text-center text-sm">{{ categoryName }}</div>
   </div>
 </template>
 
@@ -44,7 +44,15 @@ export default {
     item: {
       type: Object,
       required: true,
-      default: () => {},
+      default: () => {}
+    },
+  },
+  computed: {
+    categoryName() {
+      return this.item?.category?.name || "-";
+    },
+    userName() {
+      return this.item?.user?.fullname || "-";
     },
   },
 };
