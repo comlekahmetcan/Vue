@@ -1,9 +1,11 @@
 <template>
   <AppHeader />
-  <div class="class-flex flex-row">
+  <div class="flex flex-row">
     <side-bar />
-    <app-bookmark-list v-if="bookmarkList.length > 0" :items="bookmarkList" />
-    <div v-else>Bookmark bulunmamaktadır.</div>
+    <component :is="$route.meta.componentName" :items="bookmarkList" />
+    <!-- {{ $log($route) }} -->
+    <!-- <app-bookmark-list v-if="bookmarkList.length > 0" :items="bookmarkList" />
+    <div v-else>Bookmark bulunmamaktadır.</div> -->
   </div>
 </template>
 <script>
