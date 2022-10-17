@@ -11,7 +11,7 @@
 import MySidebar from "@/components/Home/MySidebar";
 export default {
   components: {
-    Sidebar,
+    MySidebar,
   },
   data() {
     return {
